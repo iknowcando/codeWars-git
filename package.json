@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/iknowcando/codeWars-git#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "updater-eslint": "^1.0.0"
   },
   "devDependencies": {
+    "eslint": "^8.22.0",
     "eslinter": "^3.2.1",
     "jest": "^28.1.3",
-    "prettier": "^2.7.1"
+    "prettier": "2.7.1"
   }
 }
