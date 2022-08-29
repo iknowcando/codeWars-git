@@ -32,8 +32,8 @@ export default (array) => {
   return array
     .map(
       (_, end) =>
-      array.slice(0, end).reduce((acc, leftElem) => acc + leftElem, 0) ===
-      array.slice(end + 1).reduce((acc, righElem) => acc + righElem, 0)
-        )
+        array.slice(0, end).reduce((acc, leftElem) => acc + leftElem, 0) ===
+        array.slice(end + 1).reduce((acc, righElem) => acc + righElem, 0)
+    )
     .indexOf(true);
 };

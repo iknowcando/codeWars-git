@@ -11,15 +11,13 @@ solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
 More examples in test cases. Good luck!
 */
 export default (string) => {
-  const countUpperCase =(string)=>{
+  const countUpperCase = (string) => {
     return string
-          .split('')
-          .map((char) => char === char.toUpperCase())
-          .reduce((acc, boolean) => acc + boolean, 0)
-  }
-  return countUpperCase(string) >
-    string.length / 2
+      .split('')
+      .map((char) => char === char.toUpperCase())
+      .reduce((acc, boolean) => acc + boolean, 0);
+  };
+  return countUpperCase(string) > string.length / 2
     ? string.toUpperCase()
     : string.toLowerCase();
 };
-
