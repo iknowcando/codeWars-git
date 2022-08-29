@@ -8,22 +8,22 @@ Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
 */
 
 export default (n) => {
-  const callBack = (acc, v) => {
+  const createStrWithPower = (acc, value) => {
     let temp = 2;
     let power = 0;
-    while (n % Math.pow(v, temp) === 0) {
+    while (n % Math.pow(value, temp) === 0) {
       power = temp;
       temp++;
     }
     if (power === 0) {
-      acc.push(`(${v})`);
+      acc.push(`(${value})`);
     } else {
-      acc.push(`(${v}**${power})`);
+      acc.push(`(${value}**${power})`);
     }
     return acc;
   };
 
-  const NOD = (num) => {
+  const findDivisors = (num) => {
     const res = [];
     let del = 2;
     while (num !== 1) {
@@ -36,6 +36,9 @@ export default (n) => {
     }
     return res;
   };
+  const getUniqAr = (array) => {
+    return [...new Set(array)];
+  };
 
-  return [...new Set(NOD(n))].reduce(callBack, []).join('');
+  return getUniqAr(findDivisors(n)).reduce(createStrWithPower, []).join('');
 };
