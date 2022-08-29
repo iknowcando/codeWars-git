@@ -22,13 +22,13 @@ s = "123456" gives "234561".
 */
 
 export default (str, sz) => {
-  if (sz === 0 || str === "" || sz > str.length) {
-    return "";
+  if (sz === 0 || str === '' || sz > str.length) {
+    return '';
   }
   const getFindArray = (str, sz) => {
     let start = -sz;
     let end = 0;
-    return [...new Array(Math.ceil(str.length / sz)).keys()].map((i) =>
+    return [...new Array(Math.ceil(str.length / sz)).keys()].map((_) =>
       str.slice((start += sz), (end += sz))
     );
   };
@@ -36,27 +36,29 @@ export default (str, sz) => {
   const isReverse = (elem) => {
     return (
       elem
-        .split("")
+        .split('')
         .map(Number)
-        .map((x) => x ** 3)
-        .reduce((a, b) => a + b) %
+        .map((num) => num ** 3)
+        .reduce((acc, cube) => acc + cube) %
         2 ===
       0
     );
   };
 
-  const reverse = (chnk) => {
-    return chnk.split("").reverse().join("");
+  const reverse = (chunk) => {
+    return chunk.split('').reverse().join('');
   };
 
-  const rotate = (chnk) => {
-    const workingAr = chnk.split("");
+  const rotate = (chunk) => {
+    const workingAr = chunk.split('');
     workingAr.push(workingAr.shift());
 
-    return workingAr.join("");
+    return workingAr.join('');
   };
 
   return getFindArray(str, sz)
-    .map((i) => (i.length < sz ? "" : isReverse(i) ? reverse(i) : rotate(i)))
-    .join("");
+    .map((str) =>
+      str.length < sz ? '' : isReverse(str) ? reverse(str) : rotate(str)
+    )
+    .join('');
 };

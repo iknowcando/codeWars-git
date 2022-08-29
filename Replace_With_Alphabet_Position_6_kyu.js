@@ -13,14 +13,14 @@ Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 1
 
 */
 export default (text) => {
-  if (text
-    .toLowerCase()
-    .match(/[a-z]/g) === null ){
-      return ""
-    }
+  if (text.toLowerCase().match(/[a-z]/g) === null) {
+    return '';
+  }
+  const numChar = (char) => {
+    return char.toLowerCase().charCodeAt() - 96;
+  };
   return text
-    .toLowerCase()
-    .match(/[a-z]/g)
-    .map((i) => i.charCodeAt(i) - 96)
-    .join(" ");
+    .match(/[a-z]/gi)
+    .map((char) => numChar(char))
+    .join(' ');
 };

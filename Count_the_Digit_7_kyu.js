@@ -20,8 +20,16 @@ Note that 121 has twice the digit 1.
 */
 
 export default (n, d) => {
-  return [...new Array(n + 1).keys()]
-    .map((i) => ("" + i * i).match(new RegExp(d, "g")))
+
+  const makeNbDigArray = (len) =>{
+    return  [...new Array(len + 1).keys()]
+    .map((elem) => ('' + elem * elem))
+  }
+
+  const getDigit = (array, digit) =>{
+    return array.map(elem=>elem.match(new RegExp(digit, 'g')))
     .flat()
-    .filter((i) => i !== null).length;
+    .filter((elem) => elem !== null)
+  }
+  return getDigit(makeNbDigArray(n),d).length;
 };

@@ -15,8 +15,8 @@ function digitalRoot(n) {
   }
   return digitalRoot(
     String(n)
-      .split("")
+      .split('')
       .map(Number)
-      .reduce((a, b) => a + b)
+      .reduce((acc, num) => acc + num,0)
   );
 }

@@ -19,18 +19,18 @@ Attention: If the number has leading zeros the amount of digits should be consid
 */
 
 export default (s) => {
-  const genNum = (num) => {
+  const findNum = (num) => {
     if (num.match(/[0-9]/g) === null) {
-      return "1";
+      return '1';
     }
-    const newNum = String(parseInt(num.match(/[0-9]/g).join("")) + 1);
+    const newNum = String(parseInt(num.match(/[0-9]/g).join('')) + 1);
 
     return num.match(/[0-9]/g).length > 1
-      ? num.match(/[0-9]/g).join("").slice(0, -newNum.length) + newNum
+      ? num.match(/[0-9]/g).join('').slice(0, -newNum.length) + newNum
       : newNum;
   };
 
   return s.match(/[a-z]/gi) === null
-    ? genNum(s)
-    : s.match(/[a-z]/gi).join("") + genNum(s);
+    ? findNum(s)
+    : s.match(/[a-z]/gi).join('') + findNum(s);
 };

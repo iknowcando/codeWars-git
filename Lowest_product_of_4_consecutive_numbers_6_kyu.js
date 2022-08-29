@@ -10,15 +10,20 @@ lowestProduct("35") --> "Number is too small"
 
 export default (input) => {
   if (input.length < 4) {
-    return "Number is too small";
+    return 'Number is too small';
+  }
+  const findSubString = (str) =>{
+    return str
+    .split('')
+    .map(Number)
+    .map((_, step, digitsArray) => digitsArray.slice(step, 4 + step))
+    .filter((subString) => subString.length === 4)
+  }
+  const multipliedSubString =(array)=>{
+    return array.map((subString) => subString.reduce((acc, elemSubString) => acc * elemSubString))
   }
 
   return Math.min(
-    ...input
-      .split("")
-      .map(Number)
-      .map((v, i, ar) => ar.slice(i, 4 + i))
-      .filter((k) => k.length === 4)
-      .map((x) => x.reduce((a, b) => a * b))
+    ...multipliedSubString(findSubString(input))
   );
 };

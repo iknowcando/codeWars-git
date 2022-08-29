@@ -28,12 +28,12 @@ The lowest index N where the side to the left of N is equal to the side to the r
 Note:
 If you are given an array with multiple answers, return the lowest correct index.
 */
-export default (arr) => {
-  return arr
+export default (array) => {
+  return array
     .map(
-      (v, i) =>
-        arr.slice(0, i).reduce((a, b) => a + b, 0) ===
-        arr.slice(i + 1).reduce((a, b) => a + b, 0)
-    )
+      (_, end) =>
+      array.slice(0, end).reduce((acc, leftElem) => acc + leftElem, 0) ===
+      array.slice(end + 1).reduce((acc, righElem) => acc + righElem, 0)
+        )
     .indexOf(true);
 };

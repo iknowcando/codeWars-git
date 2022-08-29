@@ -11,8 +11,11 @@ Examples
 "Buckethead" is an anagram of "DeathCubeK"
 */
 export default (test, original) => {
-    return (
-      test.toLowerCase().split("").sort().join("") ===
-      original.toLowerCase().split("").sort().join("")
-    );
-  };
+  const normalizeString = (str) =>{
+    return str.toLowerCase().split('').sort().join('')
+  }
+  return (
+    normalizeString(test) ===
+    normalizeString(original)
+  );
+};
