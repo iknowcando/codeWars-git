@@ -14,8 +14,7 @@ Examples
 */
 export default (begin, end, step) => {
   let res = 0;
-  let count = begin;
-  for (; count <= end; count += step) {
+  for (let count = begin; count <= end; count += step) {
     res += count;
   }
   return res;
